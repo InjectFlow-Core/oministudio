@@ -16,6 +16,8 @@ document.querySelector(".theme-toggle").addEventListener("click", function () {
   var toggle = document.querySelector(".period-toggle");
   if (!toggle) return;
   var figures = document.querySelectorAll("[data-month][data-year]");
+  // The tier buttons carry the choice into the app, so they switch too.
+  var links = document.querySelectorAll("[data-href-month][data-href-year]");
   toggle.addEventListener("click", function (event) {
     var button = event.target.closest("button[data-period]");
     if (!button) return;
@@ -25,6 +27,9 @@ document.querySelector(".theme-toggle").addEventListener("click", function () {
     });
     figures.forEach(function (figure) {
       figure.textContent = figure.getAttribute("data-" + period);
+    });
+    links.forEach(function (link) {
+      link.setAttribute("href", link.getAttribute("data-href-" + period));
     });
   });
 })();
