@@ -24,53 +24,145 @@
     </nav>
   </header>
 
-  <main class="doc">
+  <main class="doc wide">
     <h1>Pricing</h1>
     <p class="updated">Prices in US dollars. Tax is added at checkout where it applies.</p>
 
-    <p>
-      You pay per video, not per minute of work. One credit is one US dollar.
-      Credits are bought in packs and spent when you generate a video; the price
-      is shown and agreed before anything starts.
+    <p class="lede-sm">
+      You buy credits; credits pay for videos. A credit costs <strong>$0.25</strong>
+      on its own, and less on every plan — that is the whole reason to subscribe.
+      What a video costs in credits is the same for everyone.
     </p>
 
-    <h2>What a video costs</h2>
+    <div class="period-toggle" role="group" aria-label="Billing period">
+      <button type="button" data-period="month" class="is-selected">Monthly</button>
+      <button type="button" data-period="year">Yearly <span class="save">2 months free</span></button>
+    </div>
+
+    <section class="tier-grid">
+      <article class="tier">
+        <h2>Starter</h2>
+        <p class="tier-note">A video a week, with room to revise.</p>
+        <p class="price">
+          <span class="amount" data-month="$20" data-year="$200">$20</span>
+          <span class="per" data-month="/month" data-year="/year">/month</span>
+        </p>
+        <p class="per-credit">
+          <span data-month="100 credits a month" data-year="100 credits a month, billed yearly">100 credits a month</span>
+          &middot; <span data-month="$0.20 a credit" data-year="$0.167 a credit">$0.20 a credit</span>
+        </p>
+        <ul class="tier-list">
+          <li><strong>5 videos a month</strong> under 10 minutes</li>
+          <li>1 included revision round per project</li>
+          <li>Narration up to 15 minutes</li>
+          <li>Approved final export included</li>
+        </ul>
+        <a class="button ghost" href="/credits">Choose Starter</a>
+      </article>
+
+      <article class="tier featured">
+        <span class="badge">Most chosen</span>
+        <h2>Studio</h2>
+        <p class="tier-note">A working channel: a few videos a week.</p>
+        <p class="price">
+          <span class="amount" data-month="$49" data-year="$490">$49</span>
+          <span class="per" data-month="/month" data-year="/year">/month</span>
+        </p>
+        <p class="per-credit">
+          <span data-month="280 credits a month" data-year="280 credits a month, billed yearly">280 credits a month</span>
+          &middot; <span data-month="$0.175 a credit" data-year="$0.146 a credit">$0.175 a credit</span>
+        </p>
+        <ul class="tier-list">
+          <li><strong>14 videos a month</strong> under 10 minutes</li>
+          <li>2 included revision rounds per project</li>
+          <li>Narration up to 15 minutes</li>
+          <li>Approved final export included</li>
+        </ul>
+        <a class="button" href="/credits">Choose Studio</a>
+      </article>
+
+      <article class="tier">
+        <h2>Scale</h2>
+        <p class="tier-note">A video a day, for a team that publishes.</p>
+        <p class="price">
+          <span class="amount" data-month="$99" data-year="$990">$99</span>
+          <span class="per" data-month="/month" data-year="/year">/month</span>
+        </p>
+        <p class="per-credit">
+          <span data-month="600 credits a month" data-year="600 credits a month, billed yearly">600 credits a month</span>
+          &middot; <span data-month="$0.165 a credit" data-year="$0.138 a credit">$0.165 a credit</span>
+        </p>
+        <ul class="tier-list">
+          <li><strong>30 videos a month</strong> under 10 minutes</li>
+          <li>4 included revision rounds per project</li>
+          <li>Narration up to 15 minutes</li>
+          <li>Approved final export included</li>
+        </ul>
+        <a class="button ghost" href="/credits">Choose Scale</a>
+      </article>
+    </section>
+
+    <p class="note">
+      A yearly plan is ten months' money for twelve months of credits. The
+      allowance still arrives monthly, so a year of capacity cannot be spent in
+      a week. Plan credits expire at the end of each month; bought credits do
+      not.
+    </p>
+
+    <h2>No plan? Buy credits when you need them</h2>
+    <p>
+      Packs never expire with a billing period — they are good for 12 months
+      from purchase — and you can buy one whether or not you subscribe.
+    </p>
     <table class="price-table">
       <thead>
-        <tr><th>Narration length</th><th>Generation and approved final</th></tr>
+        <tr><th>Pack</th><th>Credits</th><th>What that makes</th></tr>
       </thead>
       <tbody>
-        <tr><td>Under 10 minutes</td><td>$5 &middot; 5 credits</td></tr>
-        <tr><td>10 to 15 minutes</td><td>$10 &middot; 10 credits</td></tr>
-        <tr><td>Over 15 minutes</td><td>Not accepted yet</td></tr>
+        <tr><td>$5</td><td>20</td><td>1 video under 10 minutes</td></tr>
+        <tr><td>$20</td><td>80</td><td>4 videos under 10 minutes</td></tr>
+        <tr><td>$50</td><td>200</td><td>10 videos under 10 minutes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What things cost</h2>
+    <p>
+      These are the same on every plan. A plan changes what a credit costs you,
+      never what the work consumes.
+    </p>
+    <table class="price-table">
+      <thead>
+        <tr><th>Work</th><th>Credits</th><th>At the $0.25 list price</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Video under 10 minutes, with its approved final</td><td>20</td><td>$5.00</td></tr>
+        <tr><td>Video 10 to 15 minutes, with its approved final</td><td>40</td><td>$10.00</td></tr>
+        <tr><td>Video over 15 minutes</td><td colspan="2">Not accepted yet</td></tr>
+        <tr><td>Scoped revision, per 15 seconds of narration</td><td>1</td><td>$0.25</td></tr>
+        <tr><td>Generated voice-over, per started minute of script</td><td>0.4</td><td>$0.10</td></tr>
       </tbody>
     </table>
     <p>
-      The price covers the draft and the approved final export. Exporting the
-      final costs nothing extra, and re-exporting an approved video is free.
-    </p>
-
-    <h2>Revisions</h2>
-    <p>
-      Scoped revisions cost a quarter of a credit per 15 seconds of narration,
-      rounded up, with a minimum of a quarter credit. The cost is quoted before
-      the revision runs. Your plan's included revision rounds are used first.
+      Your plan's included revision rounds are used before any revision costs
+      credits. Exporting an approved final costs nothing extra, and re-exporting
+      one you already approved is free.
     </p>
 
     <h2>What is free</h2>
     <ul>
       <li>Uploading and checking your audio.</li>
       <li>Viewing, commenting on and downloading work you already own.</li>
-      <li>Retrying anything that failed on our side.</li>
+      <li>Retrying anything that failed on our side — a failed generation returns the credits it reserved.</li>
       <li>Reusing narration you have already approved in another render.</li>
     </ul>
 
-    <h2>Credits</h2>
+    <h2>The fine print that matters</h2>
     <ul>
-      <li>Credits are bought in packs from inside the app and appear on your balance as soon as payment is confirmed.</li>
-      <li>Credits bought as a pack do not expire at the end of a billing period.</li>
-      <li>A failed generation returns the credits it reserved.</li>
+      <li>Plan credits arrive each billing month and expire at the end of it. Bought packs last 12 months.</li>
+      <li>Credits with the earliest expiry are spent first, so a plan's allowance is used before a pack you bought.</li>
+      <li>Changing plan takes effect next billing period and does not rewrite credits you already hold.</li>
       <li>Credits have no cash value and are not transferable between accounts.</li>
+      <li>Unused credits are refundable for 14 days — see the <a href="/refunds">refund policy</a>.</li>
     </ul>
 
     <h2>Questions</h2>
