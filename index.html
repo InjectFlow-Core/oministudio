@@ -3,16 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Omini Studio — Coming soon</title>
-<meta name="description" content="Omini Studio turns narration audio into finished, synchronized explainer videos. Launching soon.">
+<title>Omini Studio · Turn narration into explainer videos</title>
+<meta name="description" content="Omini Studio turns your narration, recorded or generated from a script, into a finished explainer video with every scene timed to your words. In private beta.">
 <link rel="canonical" href="https://oministudio.com/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Omini Studio">
 <meta property="og:url" content="https://oministudio.com/">
-<meta property="og:title" content="Omini Studio — Coming soon">
-<meta property="og:description" content="Turn your voice over or script into a finished explainer video.">
+<meta property="og:title" content="Omini Studio: talk through the idea, get the explainer video">
+<meta property="og:description" content="Omini Studio turns your narration, recorded or generated from a script, into a finished explainer video with every scene timed to your words. In private beta.">
 <meta property="og:image" content="https://oministudio.com/demo-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d9488'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<meta name="theme-color" content="#f6f5f1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="/site.css">
 <script>
   // Apply the remembered colour scheme before first paint.
@@ -21,44 +26,205 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="/">Omini Studio</a>
-    <nav>
+    <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+    <nav class="links" id="site-nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#examples" data-examples-link hidden>Examples</a>
       <a href="/pricing">Pricing</a>
-      <span class="soon">Coming soon</span>
-      <button type="button" class="theme-toggle" title="Switch light / dark" aria-label="Switch colour scheme">
-        <span class="sun">&#9728;</span><span class="moon">&#9790;</span>
-      </button>
+      <a href="/about">About</a>
+      <a class="button menu-only" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
     </nav>
+    <div class="actions">
+      <span class="pill">Private beta</span>
+      <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+      <a class="button ink small" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request access</a>
+      <button type="button" class="icon-button menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
   </header>
 
-  <main class="app-shell">
-    <section class="hero-split">
-      <div class="hero">
-        <h1>Turn your voice-over or script into a finished explainer video.</h1>
-        <p class="lede">
-          Upload narration, review the draft, and approve the final.
-        </p>
-        <a class="button" href="mailto:eze@injectflow.com?subject=Notify%20me%20when%20Omini%20Studio%20launches">Get notified at launch</a>
-        <p class="note">One email when we open the doors. Nothing else.</p>
-      </div>
-      <figure class="demo">
-        <video controls preload="metadata" poster="/demo-poster.jpg" src="/demo.mp4"></video>
-        <figcaption>Made from a two-minute voice note. Every scene is planned from the words and timed to them.</figcaption>
+  <main>
+    <section class="hero" id="top">
+      <p class="eyebrow">For YouTubers and anyone who teaches on video</p>
+      <h1 class="serif">Talk through the idea. <span class="italic accent">Get the explainer video.</span></h1>
+      <p class="lede">Omini Studio plans a scene for every point in your narration, whether you record it yourself or generate a voice-over from a script, and times each animation to the word that introduces it. You review the draft and approve the final.</p>
+      <a class="button" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
+      <p class="note">We are letting people in a few at a time. One email when your invite is ready.</p>
+
+      <figure class="player" style="margin-left:0;margin-right:0">
+        <video controls preload="metadata" poster="/demo-poster.jpg" src="/demo.mp4" aria-label="Demo video: an explainer made from a two-minute voice note"></video>
+        <figcaption class="timeline">
+          <div class="timeline-head">
+            <span class="mono">Narration &rarr; storyboard &middot; 0:00 to 0:12</span>
+            <span>Each scene starts on the word that introduces it</span>
+          </div>
+          <div class="track">
+            <div class="wave" aria-hidden="true"></div>
+            <ol class="beats">
+            <li><button type="button" class="beat" data-start="0">
+              <span class="time">0:00.4</span>
+              <span class="words">“Why does the Moon have phases?”</span>
+              <span class="scene"><b>Beat 1</b>Question card</span>
+            </button></li>
+            <li><button type="button" class="beat" data-start="0.2308">
+              <span class="time">0:02.9</span>
+              <span class="words">“Half of it is always lit by the Sun.”</span>
+              <span class="scene"><b>Beat 2</b>Sun and Moon</span>
+            </button></li>
+            <li><button type="button" class="beat" data-start="0.4615">
+              <span class="time">0:05.6</span>
+              <span class="words">“As it orbits us, we see more or less of that lit half.”</span>
+              <span class="scene"><b>Beat 3</b>Orbit, four phases</span>
+            </button></li>
+            <li><button type="button" class="beat" data-start="0.8462">
+              <span class="time">0:10.1</span>
+              <span class="words">“That is a phase.”</span>
+              <span class="scene"><b>Beat 4</b>Recap</span>
+            </button></li>
+            </ol>
+            <span class="playhead" aria-hidden="true"></span>
+          </div>
+        </figcaption>
       </figure>
+      <p class="caption">The demo was made from a two-minute voice note. The timeline is an illustration of how scenes line up with narration.</p>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-head">
+        <h2 class="serif display-2">From voice note to finished video in three steps.</h2>
+        <p>You keep the parts that need a person: what to say, and whether the result is right. The storyboard, layout and timing are done for you.</p>
+      </div>
+      <ol class="steps">
+      <li class="card">
+        <span class="num">01</span>
+        <h3>Record or upload narration</h3>
+        <p>Record in the browser, upload an audio file, or generate a voice-over from a script. Up to 15 minutes.</p>
+      </li>
+      <li class="card">
+        <span class="num">02</span>
+        <h3>Review the draft</h3>
+        <p>Watch a quick draft. Change a scene in plain English, like “replace the chart with a map”, without re-planning the rest.</p>
+      </li>
+      <li class="card">
+        <span class="num">03</span>
+        <h3>Approve and export</h3>
+        <p>Get the final in 1080p. Landscape for YouTube, portrait for Shorts, from the same storyboard.</p>
+      </li>
+      </ol>
+    </section>
+
+    <section class="section sunk" id="examples" hidden>
+      <div class="section-head">
+        <h2 class="serif display-2">Made with Omini Studio.</h2>
+        <p>Every video below started as someone talking. No storyboard, no animator, no editing timeline.</p>
+      </div>
+      <div class="samples"></div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <h2 class="serif display-3">Spend your time on the teaching.</h2>
+        <p>Omini Studio does the production work that usually stands between an idea and a published video.</p>
+      </div>
+      <div class="values">
+        <div>
+          <h3>Publish more often</h3>
+          <p>Turn a lesson into a finished video in an afternoon, with no storyboarding or animation on your side.</p>
+        </div>
+        <div>
+          <h3>Look professional without a team</h3>
+          <p>Clean, animated explainers without hiring a designer or learning motion software.</p>
+        </div>
+        <div>
+          <h3>Reach viewers on every screen</h3>
+          <p>Get a video for YouTube and a vertical cut for Shorts without doing the work twice.</p>
+        </div>
+        <div>
+          <h3>Stay in control of your work</h3>
+          <p>Nothing goes out until you approve it, and the finished video is yours to use and monetise.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="band-wrap">
+      <section class="band">
+        <div>
+          <h2 class="serif">About $5 a video.</h2>
+          <p>A video under 10 minutes costs 20 credits, including its approved final. Buy credits as you go, or subscribe and pay less per credit.</p>
+        </div>
+        <a class="button light" href="/pricing">See pricing</a>
+      </section>
+    </div>
+
+    <section class="section split">
+      <div>
+        <h2 class="serif display-3">Questions people ask first.</h2>
+        <p>Anything else, write to <a class="inline-link" href="mailto:eze@injectflow.com">eze@injectflow.com</a>. A person answers.</p>
+      </div>
+      <div class="faq">
+        <div>
+          <h3>Do I need a script or my own voice?</h3>
+          <p>Either works. Record or upload your own narration, or write a script and have a generated voice read it. Omini Studio builds the video from whichever you choose.</p>
+        </div>
+        <div>
+          <h3>How long can a video be?</h3>
+          <p>Up to 15 minutes of narration. A video under 10 minutes costs half as much as a longer one.</p>
+        </div>
+        <div>
+          <h3>What if I do not like a scene?</h3>
+          <p>Say what to change in plain English. Only that scene is redone. Every plan includes revision rounds, and extra ones are priced per 15 seconds of narration.</p>
+        </div>
+        <div>
+          <h3>Which formats do I get?</h3>
+          <p>Landscape 16:9 for YouTube and portrait 9:16 for Shorts, both in 1080p, from one storyboard.</p>
+        </div>
+        <div>
+          <h3>When can I get in?</h3>
+          <p>We are in private beta and letting people in a few at a time. Email us and we will write back when your invite is ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2 class="serif">Your next video is <span class="italic accent">already in your head.</span></h2>
+      <p>Say it out loud. Omini Studio does the storyboard, the animation and the timing.</p>
+      <a class="button" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="inner">
-      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651) </span>
-      <nav>
-        <a href="/about">About</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/terms">Terms of service</a>
-        <a href="/privacy">Privacy policy</a>
-        <a href="/refunds">Refund policy</a>
-        <a href="mailto:eze@injectflow.com">Contact</a>
-      </nav>
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+        <p class="tagline">Narration in, explainer video out.</p>
+      </div>
+      <div class="footer-links">
+        <nav aria-label="Product">
+          <span>Product</span>
+          <a href="/#how">How it works</a>
+          <a href="/#examples" data-examples-link hidden>Examples</a>
+          <a href="/pricing">Pricing</a>
+        </nav>
+        <nav aria-label="Company">
+          <span>Company</span>
+          <a href="/about">About</a>
+          <a href="mailto:eze@injectflow.com">Contact</a>
+        </nav>
+        <nav aria-label="Legal">
+          <span>Legal</span>
+          <a href="/terms">Terms of service</a>
+          <a href="/privacy">Privacy policy</a>
+          <a href="/refunds">Refund policy</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651)</span>
+      <span>oministudio.com</span>
     </div>
   </footer>
 

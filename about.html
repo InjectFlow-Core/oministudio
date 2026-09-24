@@ -3,10 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Omini Studio</title>
+<title>About · Omini Studio</title>
 <meta name="description" content="Who runs Omini Studio, what it does, and how to reach us.">
 <link rel="canonical" href="https://oministudio.com/about">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d9488'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omini Studio">
+<meta property="og:url" content="https://oministudio.com/about">
+<meta property="og:title" content="About · Omini Studio">
+<meta property="og:description" content="Who runs Omini Studio, what it does, and how to reach us.">
+<meta property="og:image" content="https://oministudio.com/demo-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f5f1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="/site.css">
 <script>
   // Apply the remembered colour scheme before first paint.
@@ -15,100 +26,108 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="/">Omini Studio</a>
-    <nav>
+    <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+    <nav class="links" id="site-nav" aria-label="Main">
+      <a href="/#how">How it works</a>
+      <a href="/#examples" data-examples-link hidden>Examples</a>
       <a href="/pricing">Pricing</a>
-      <button type="button" class="theme-toggle" title="Switch light / dark" aria-label="Switch colour scheme">
-        <span class="sun">&#9728;</span><span class="moon">&#9790;</span>
-      </button>
+      <a href="/about" aria-current="page">About</a>
+      <a class="button menu-only" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
     </nav>
+    <div class="actions">
+      <span class="pill">Private beta</span>
+      <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+      <a class="button ink small" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request access</a>
+      <button type="button" class="icon-button menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
   </header>
 
-  <main class="doc">
-    <h1>About Omini Studio</h1>
-    <p class="updated">Calabar, Nigeria.</p>
+  <main>
+    <section class="about-hero">
+      <p class="eyebrow">About</p>
+      <h1 class="serif">Explainer videos should take an afternoon, <span class="italic accent">not a production team.</span></h1>
+    </section>
 
-    <p class="lede-sm">
-      Omini Studio turns narration audio into a finished, animated explainer
-      video. You upload or record the narration, describe what you want, review
-      the draft, and approve the final.
-    </p>
+    <section class="about-row">
+      <h2>What we do</h2>
+      <div class="prose-lg">
+        <p>Making an explainer usually means a script, a storyboard, a designer, an animator and a week of revisions. Omini Studio does the middle of that for you. It listens to your narration, plans a scene for every part of what you said, and times the animation to your voice.</p>
+        <p class="muted">You stay in charge of the result. The draft is there to be changed, and scoped revisions are part of the flow. Videos are made from your own audio, nothing is published on your behalf, and the finished video is yours to use commercially once it is paid for.</p>
+      </div>
+    </section>
 
-    <h2>What we actually do</h2>
-    <p>
-      Making an explainer video normally means a script, a storyboard, a
-      designer, an animator and a week of revisions. Omini Studio does the
-      middle of that automatically: it listens to your narration, plans a scene
-      for every part of what you said, and times the animation to your voice.
-      You stay in charge of the result — the draft is there to be changed, and
-      scoped revisions are part of the flow rather than a favour.
-    </p>
-    <p>
-      Videos are produced from your own audio. Nothing is published on your
-      behalf, and the finished video is yours to use commercially once it is
-      paid for.
-    </p>
+    <section class="about-row section sunk">
+      <h2>Who we are</h2>
+      <div class="prose-lg">
+        <p>Omini Studio is a product of Injectflow Core, a company registered in Nigeria. We are a small team, which is why support comes from a person and not a queue.</p>
+      </div>
+    </section>
 
-    <h2>Who we are</h2>
-    <p>
-      Omini Studio is a product of <strong>Injectflow Core</strong>, a company
-      registered in Nigeria. We are a small team, which is the honest reason
-      support comes from a person rather than a queue.
-    </p>
+    <section class="about-row section">
+      <h2>Company details</h2>
+      <table class="facts">
+        <tbody>
+          <tr><th scope="row">Legal entity</th><td>Injectflow Core</td></tr>
+          <tr><th scope="row">Company registration number</th><td class="mono">RC 8860651</td></tr>
+          <tr><th scope="row">Registered office</th><td>8 Yellow Duke Street, Calabar, Cross River State, Nigeria</td></tr>
+          <tr><th scope="row">Email</th><td><a href="mailto:eze@injectflow.com">eze@injectflow.com</a></td></tr>
+        </tbody>
+      </table>
+    </section>
 
-    <table class="price-table">
-      <tbody>
-        <tr>
-          <th scope="row">Legal entity</th>
-          <td>Injectflow Core</td>
-        </tr>
-        <tr>
-          <th scope="row">Company registration number</th>
-          <td>RC 8860651</td>
-        </tr>
-        <tr>
-          <th scope="row">Registered office</th>
-          <td>8 Yellow Duke Street, Calabar, Cross River State, Nigeria</td>
-        </tr>
-        <tr>
-          <th scope="row">Business address</th>
-          <td>7 Ekong Bassey Street, Calabar, Cross River State, Nigeria</td>
-        </tr>
-        <tr>
-          <th scope="row">Email</th>
-          <td><a href="mailto:eze@injectflow.com">eze@injectflow.com</a></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Getting in touch</h2>
-    <p>
-      Write to <a href="mailto:eze@injectflow.com">eze@injectflow.com</a> about
-      anything: a video that did not come out right, a refund, a question
-      before you buy, or a request to see what personal data we hold. A person
-      answers, normally within two business days.
-    </p>
-
-    <h2>The details</h2>
-    <p>
-      What a video costs is on the <a href="/pricing">pricing page</a>. The
-      terms you agree to are in the <a href="/terms">terms of service</a>, what
-      we do with your data is in the <a href="/privacy">privacy policy</a>, and
-      when we give money back is in the <a href="/refunds">refund policy</a>.
-    </p>
+    <section class="cards-3">
+      <div class="card">
+        <h3>Talk to a person</h3>
+        <p>A video that did not come out right, a refund, a question before you buy, or a request for the personal data we hold. We answer within two business days.</p>
+        <a href="mailto:eze@injectflow.com">eze@injectflow.com</a>
+      </div>
+      <div class="card">
+        <h3>What things cost</h3>
+        <p>Plans, credit packs, and the price of every piece of work, in one place.</p>
+        <a href="/pricing">See pricing</a>
+      </div>
+      <div class="card">
+        <h3>The agreements</h3>
+        <p>The terms you agree to, what we do with your data, and when we give money back.</p>
+        <a href="/terms">Read the policies</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="inner">
-      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651) &middot; 7 Ekong Bassey Street, Calabar, Nigeria</span>
-      <nav>
-        <a href="/about">About</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/terms">Terms of service</a>
-        <a href="/privacy">Privacy policy</a>
-        <a href="/refunds">Refund policy</a>
-        <a href="mailto:eze@injectflow.com">Contact</a>
-      </nav>
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+        <p class="tagline">Narration in, explainer video out.</p>
+      </div>
+      <div class="footer-links">
+        <nav aria-label="Product">
+          <span>Product</span>
+          <a href="/#how">How it works</a>
+          <a href="/#examples" data-examples-link hidden>Examples</a>
+          <a href="/pricing">Pricing</a>
+        </nav>
+        <nav aria-label="Company">
+          <span>Company</span>
+          <a href="/about">About</a>
+          <a href="mailto:eze@injectflow.com">Contact</a>
+        </nav>
+        <nav aria-label="Legal">
+          <span>Legal</span>
+          <a href="/terms">Terms of service</a>
+          <a href="/privacy">Privacy policy</a>
+          <a href="/refunds">Refund policy</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651)</span>
+      <span>oministudio.com</span>
     </div>
   </footer>
 

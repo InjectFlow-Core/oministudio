@@ -3,10 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing — Omini Studio</title>
-<meta name="description" content="What a video costs on Omini Studio: a fixed price per video by narration length, paid with credits.">
+<title>Pricing · Omini Studio</title>
+<meta name="description" content="What a video costs on Omini Studio: plans from $20 a month, credit packs from $5, and a fixed credit price for every piece of work.">
 <link rel="canonical" href="https://oministudio.com/pricing">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d9488'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omini Studio">
+<meta property="og:url" content="https://oministudio.com/pricing">
+<meta property="og:title" content="Pricing · Omini Studio">
+<meta property="og:description" content="What a video costs on Omini Studio: plans from $20 a month, credit packs from $5, and a fixed credit price for every piece of work.">
+<meta property="og:image" content="https://oministudio.com/demo-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f5f1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='3'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="/site.css">
 <script>
   // Apply the remembered colour scheme before first paint.
@@ -15,168 +26,177 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="/">Omini Studio</a>
-    <nav>
-      <a href="/pricing">Pricing</a>
-      <button type="button" class="theme-toggle" title="Switch light / dark" aria-label="Switch colour scheme">
-        <span class="sun">&#9728;</span><span class="moon">&#9790;</span>
-      </button>
+    <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+    <nav class="links" id="site-nav" aria-label="Main">
+      <a href="/#how">How it works</a>
+      <a href="/#examples" data-examples-link hidden>Examples</a>
+      <a href="/pricing" aria-current="page">Pricing</a>
+      <a href="/about">About</a>
+      <a class="button menu-only" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
     </nav>
+    <div class="actions">
+      <span class="pill">Private beta</span>
+      <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+      </button>
+      <a class="button ink small" href="mailto:eze@injectflow.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request access</a>
+      <button type="button" class="icon-button menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
   </header>
 
-  <main class="doc wide">
-    <h1>Pricing</h1>
-    <p class="updated">Prices in US dollars. Tax is added at checkout where it applies.</p>
-
-    <div class="period-toggle" role="group" aria-label="Billing period">
-      <button type="button" data-period="month" class="is-selected">Monthly</button>
-      <button type="button" data-period="year">Yearly <span class="save">2 months free</span></button>
-    </div>
-
-    <section class="tier-grid">
-      <article class="tier">
-        <h2>Starter</h2>
-        <p class="tier-note">A video a week, with room to revise.</p>
-        <p class="price">
-          <span class="amount" data-month="$20" data-year="$200">$20</span>
-          <span class="per" data-month="/month" data-year="/year">/month</span>
-        </p>
-        <p class="per-credit">
-          <span data-month="100 credits a month" data-year="100 credits a month, billed yearly">100 credits a month</span>
-          &middot; <span data-month="$0.20 a credit" data-year="$0.167 a credit">$0.20 a credit</span>
-        </p>
-        <ul class="tier-list">
-          <li><strong>5 videos a month</strong> under 10 minutes</li>
-          <li>1 included revision round per project</li>
-          <li>Narration up to 15 minutes</li>
-          <li>Approved final export included</li>
-        </ul>
-        <a class="button ghost" href="/credits?plan=starter&amp;period=month"
-           data-href-month="/credits?plan=starter&amp;period=month"
-           data-href-year="/credits?plan=starter&amp;period=year">Choose Starter</a>
-      </article>
-
-      <article class="tier featured">
-        <span class="badge">Most chosen</span>
-        <h2>Studio</h2>
-        <p class="tier-note">A working channel: a few videos a week.</p>
-        <p class="price">
-          <span class="amount" data-month="$49" data-year="$490">$49</span>
-          <span class="per" data-month="/month" data-year="/year">/month</span>
-        </p>
-        <p class="per-credit">
-          <span data-month="280 credits a month" data-year="280 credits a month, billed yearly">280 credits a month</span>
-          &middot; <span data-month="$0.175 a credit" data-year="$0.146 a credit">$0.175 a credit</span>
-        </p>
-        <ul class="tier-list">
-          <li><strong>14 videos a month</strong> under 10 minutes</li>
-          <li>2 included revision rounds per project</li>
-          <li>Narration up to 15 minutes</li>
-          <li>Approved final export included</li>
-        </ul>
-        <a class="button" href="/credits?plan=studio&amp;period=month"
-           data-href-month="/credits?plan=studio&amp;period=month"
-           data-href-year="/credits?plan=studio&amp;period=year">Choose Studio</a>
-      </article>
-
-      <article class="tier">
-        <h2>Scale</h2>
-        <p class="tier-note">A video a day, for a team that publishes.</p>
-        <p class="price">
-          <span class="amount" data-month="$99" data-year="$990">$99</span>
-          <span class="per" data-month="/month" data-year="/year">/month</span>
-        </p>
-        <p class="per-credit">
-          <span data-month="600 credits a month" data-year="600 credits a month, billed yearly">600 credits a month</span>
-          &middot; <span data-month="$0.165 a credit" data-year="$0.138 a credit">$0.165 a credit</span>
-        </p>
-        <ul class="tier-list">
-          <li><strong>30 videos a month</strong> under 10 minutes</li>
-          <li>4 included revision rounds per project</li>
-          <li>Narration up to 15 minutes</li>
-          <li>Approved final export included</li>
-        </ul>
-        <a class="button ghost" href="/credits?plan=scale&amp;period=month"
-           data-href-month="/credits?plan=scale&amp;period=month"
-           data-href-year="/credits?plan=scale&amp;period=year">Choose Scale</a>
-      </article>
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Pricing &middot; US dollars</p>
+      <h1 class="serif">Pay for videos, <span class="italic accent">not seats.</span></h1>
+      <p class="lede">Credits pay for videos. A credit costs $0.25 on its own and less on every plan. What a video costs in credits is the same for everyone.</p>
+      <div class="period-toggle" role="group" aria-label="Billing period">
+        <button type="button" data-period="month" class="is-selected" aria-pressed="true">Monthly</button>
+        <button type="button" data-period="year" aria-pressed="false">Yearly <span class="save">2 months free</span></button>
+      </div>
     </section>
 
+    <section class="tiers" aria-label="Plans">
+      <article class="tier">
+        <div class="tier-head"><h2>Starter</h2></div>
+        <p class="note">A video a week, with room to revise.</p>
+        <p class="price"><span class="amount" data-month="$20" data-year="$200">$20</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">100 credits a month &middot; <span data-month="$0.20 a credit" data-year="$0.167 a credit">$0.20 a credit</span></p>
+        <ul class="checks">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>5 videos a month</strong> under 10 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>1 revision round per project</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
+        </ul>
+        <a class="button ghost" href="mailto:eze@injectflow.com?subject=Early%20access%3A%20Starter%20plan">Request access</a>
+      </article>
+      <article class="tier featured">
+        <div class="tier-head"><h2>Studio</h2><span class="badge">Most chosen</span></div>
+        <p class="note">A working channel: a few videos a week.</p>
+        <p class="price"><span class="amount" data-month="$49" data-year="$490">$49</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">280 credits a month &middot; <span data-month="$0.175 a credit" data-year="$0.146 a credit">$0.175 a credit</span></p>
+        <ul class="checks">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>14 videos a month</strong> under 10 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>2 revision rounds per project</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
+        </ul>
+        <a class="button" href="mailto:eze@injectflow.com?subject=Early%20access%3A%20Studio%20plan">Request access</a>
+      </article>
+      <article class="tier">
+        <div class="tier-head"><h2>Scale</h2></div>
+        <p class="note">A video a day, for a team that publishes.</p>
+        <p class="price"><span class="amount" data-month="$99" data-year="$990">$99</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">600 credits a month &middot; <span data-month="$0.165 a credit" data-year="$0.138 a credit">$0.165 a credit</span></p>
+        <ul class="checks">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>30 videos a month</strong> under 10 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>4 revision rounds per project</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
+        </ul>
+        <a class="button ghost" href="mailto:eze@injectflow.com?subject=Early%20access%3A%20Scale%20plan">Request access</a>
+      </article>
+    </section>
+    <p class="fine">Plan credits arrive monthly, even on a yearly plan, and expire at the end of each month. Bought credits last 12 months. Plans open when the beta does.</p>
 
-    <h2>No plan? Buy credits when you need them</h2>
-    <p>
-      Packs never expire with a billing period — they are good for 12 months
-      from purchase — and you can buy one whether or not you subscribe.
-    </p>
-    <table class="price-table">
-      <thead>
-        <tr><th>Pack</th><th>Credits</th><th>What that makes</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>$5</td><td>20</td><td>1 video under 10 minutes</td></tr>
-        <tr><td>$20</td><td>80</td><td>4 videos under 10 minutes</td></tr>
-        <tr><td>$50</td><td>200</td><td>10 videos under 10 minutes</td></tr>
-      </tbody>
-    </table>
+    <section class="section sunk pricing-tables">
+      <div class="cols">
+        <div>
+          <h2 class="serif display-4">No plan? Buy credits when you need them.</h2>
+          <p>Packs are good for 12 months from purchase, with or without a plan.</p>
+          <table class="table">
+            <thead><tr><th>Pack</th><th>Credits</th><th>What that makes</th></tr></thead>
+            <tbody>
+              <tr><td class="big">$5</td><td class="num">20</td><td>1 video under 10 minutes</td></tr>
+              <tr><td class="big">$20</td><td class="num">80</td><td>4 videos under 10 minutes</td></tr>
+              <tr><td class="big">$50</td><td class="num">200</td><td>10 videos under 10 minutes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2 class="serif display-4">What each piece of work costs.</h2>
+          <p>The same on every plan. A plan changes what a credit costs you, never what the work uses.</p>
+          <table class="table">
+            <thead><tr><th>Work</th><th>Credits</th><th>At $0.25 a credit</th></tr></thead>
+            <tbody>
+              <tr><td>Video under 10 minutes, with its approved final</td><td class="num">20</td><td class="num">$5.00</td></tr>
+              <tr><td>Video 10 to 15 minutes, with its approved final</td><td class="num">40</td><td class="num">$10.00</td></tr>
+              <tr><td>Scoped revision, per 15 seconds of narration</td><td class="num">1</td><td class="num">$0.25</td></tr>
+              <tr><td>Generated voice-over, per started minute of script</td><td class="num">0.4</td><td class="num">$0.10</td></tr>
+              <tr><td class="off">Video over 15 minutes</td><td class="off" colspan="2">Not accepted yet</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-    <h2>What things cost</h2>
-    <p>
-      These are the same on every plan. A plan changes what a credit costs you,
-      never what the work consumes.
-    </p>
-    <table class="price-table">
-      <thead>
-        <tr><th>Work</th><th>Credits</th><th>At the $0.25 list price</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Video under 10 minutes, with its approved final</td><td>20</td><td>$5.00</td></tr>
-        <tr><td>Video 10 to 15 minutes, with its approved final</td><td>40</td><td>$10.00</td></tr>
-        <tr><td>Video over 15 minutes</td><td colspan="2">Not accepted yet</td></tr>
-        <tr><td>Scoped revision, per 15 seconds of narration</td><td>1</td><td>$0.25</td></tr>
-        <tr><td>Generated voice-over, per started minute of script</td><td>0.4</td><td>$0.10</td></tr>
-      </tbody>
-    </table>
-    <p>
-      Your plan's included revision rounds are used before any revision costs
-      credits. Exporting an approved final costs nothing extra, and re-exporting
-      one you already approved is free.
-    </p>
+    <section class="section">
+      <div class="cols">
+        <div>
+          <h2 class="serif display-4">Free, always.</h2>
+          <ul class="rules">
+            <li>Uploading and checking your audio.</li>
+            <li>Viewing, commenting on and downloading work you already own.</li>
+            <li>Retrying anything that failed on our side. A failed generation returns the credits it reserved.</li>
+            <li>Reusing narration you already approved in another render.</li>
+            <li>Re-exporting a final you already approved.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="serif display-4">The fine print that matters.</h2>
+          <ul class="rules">
+            <li>Credits that expire soonest are spent first, so a plan's allowance goes before a pack.</li>
+            <li>Plan changes take effect next billing period and do not touch credits you hold.</li>
+            <li>Your plan's revision rounds are used before any revision costs credits.</li>
+            <li>Credits have no cash value and cannot move between accounts.</li>
+            <li>Unused credits are refundable for 14 days. See the <a href="/refunds">refund policy</a>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <h2>What is free</h2>
-    <ul>
-      <li>Uploading and checking your audio.</li>
-      <li>Viewing, commenting on and downloading work you already own.</li>
-      <li>Retrying anything that failed on our side — a failed generation returns the credits it reserved.</li>
-      <li>Reusing narration you have already approved in another render.</li>
-    </ul>
-
-    <h2>The fine print that matters</h2>
-    <ul>
-      <li>Plan credits arrive each billing month and expire at the end of it. Bought packs last 12 months.</li>
-      <li>Credits with the earliest expiry are spent first, so a plan's allowance is used before a pack you bought.</li>
-      <li>Changing plan takes effect next billing period and does not rewrite credits you already hold.</li>
-      <li>Credits have no cash value and are not transferable between accounts.</li>
-      <li>Unused credits are refundable for 14 days — see the <a href="/refunds">refund policy</a>.</li>
-    </ul>
-
-    <h2>Questions</h2>
-    <p>
-      Write to <a href="mailto:eze@injectflow.com">eze@injectflow.com</a> and a
-      person will answer.
-    </p>
+    <div class="band-wrap">
+      <section class="band">
+        <div>
+          <h2 class="serif">Questions about a plan?</h2>
+          <p>Write to eze@injectflow.com and a person will answer.</p>
+        </div>
+        <a class="button light" href="mailto:eze@injectflow.com">Email us</a>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="inner">
-      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651) &middot; 7 Ekong Bassey Street, Calabar, Nigeria</span>
-      <nav>
-        <a href="/about">About</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/terms">Terms of service</a>
-        <a href="/privacy">Privacy policy</a>
-        <a href="/refunds">Refund policy</a>
-        <a href="mailto:eze@injectflow.com">Contact</a>
-      </nav>
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="/"><svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"></rect><circle cx="16" cy="16" r="7" fill="none" stroke-width="3"></circle></svg><span>Omini Studio</span></a>
+        <p class="tagline">Narration in, explainer video out.</p>
+      </div>
+      <div class="footer-links">
+        <nav aria-label="Product">
+          <span>Product</span>
+          <a href="/#how">How it works</a>
+          <a href="/#examples" data-examples-link hidden>Examples</a>
+          <a href="/pricing">Pricing</a>
+        </nav>
+        <nav aria-label="Company">
+          <span>Company</span>
+          <a href="/about">About</a>
+          <a href="mailto:eze@injectflow.com">Contact</a>
+        </nav>
+        <nav aria-label="Legal">
+          <span>Legal</span>
+          <a href="/terms">Terms of service</a>
+          <a href="/privacy">Privacy policy</a>
+          <a href="/refunds">Refund policy</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651)</span>
+      <span>oministudio.com</span>
     </div>
   </footer>
 
