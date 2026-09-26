@@ -134,9 +134,7 @@ img, video { max-width: 100%; display: block; }
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -.01em; color: var(--ink); }
 .brand:hover { color: var(--ink); }
-.brand svg { flex-shrink: 0; }
-.brand-mark rect { fill: var(--accent); }
-.brand-mark circle { stroke: var(--accent-ink); }
+.brand-mark { flex-shrink: 0; display: block; }
 .topbar .links { display: flex; align-items: center; gap: 36px; font-size: 15px; font-weight: 500; }
 .topbar .links a[aria-current="page"] { color: var(--accent); }
 .topbar .actions { display: flex; align-items: center; gap: 14px; }
