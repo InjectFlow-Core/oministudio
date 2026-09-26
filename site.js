@@ -137,6 +137,31 @@ var SAMPLES = [];
   section.hidden = false;
 })();
 
+// Fade-up reveal for step and value cards as they scroll into view.
+(function () {
+  var items = document.querySelectorAll(".reveal");
+  if (!items.length) return;
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(function (el) { el.classList.add("is-visible"); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: .2, rootMargin: "0px 0px -10% 0px" });
+  // Wait a frame so the browser paints the hidden state first — otherwise
+  // anything already in view on load jumps straight to visible with no
+  // animation to see.
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      items.forEach(function (el) { observer.observe(el); });
+    });
+  });
+})();
+
 // Pricing: swap every monthly figure for its yearly one. Each element
 // carries both, so nothing here has to know what a tier costs.
 (function () {
