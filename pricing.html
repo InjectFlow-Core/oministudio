@@ -1,113 +1,191 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Pricing · Omini Studio</title>
-<meta name="description" content="Omini Studio pricing: monthly plans, credit packs, and a fixed credit price for every piece of work.">
+
+<meta name="description" content="Omini Studio pricing: monthly plans and flexible credit packs. One credit equals one minute of generated video.">
+
 <link rel="canonical" href="https://oministudio.com/pricing">
+
 <meta property="og:type" content="website">
+
 <meta property="og:site_name" content="Omini Studio">
+
 <meta property="og:url" content="https://oministudio.com/pricing">
+
 <meta property="og:title" content="Pricing · Omini Studio">
-<meta property="og:description" content="Omini Studio pricing: monthly plans, credit packs, and a fixed credit price for every piece of work.">
+
+<meta property="og:description" content="Omini Studio pricing: monthly plans and flexible credit packs. One credit equals one minute of generated video.">
+
 <meta property="og:image" content="https://oministudio.com/demo-poster.jpg">
+
 <meta name="twitter:card" content="summary_large_image">
+
 <meta name="theme-color" content="#f6f5f1">
+
 <link rel="icon" type="image/png" href="https://pub-87ce856b3b634038bd41c8f985892c19.r2.dev/brand/logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,700&amp;display=swap">
+
 <link rel="stylesheet" href="/site.css">
+
 <script>
+
   // Apply the remembered colour scheme before first paint.
+
   try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}
+
 </script>
+
 </head>
+
 <body>
+
   <header class="topbar">
+
     <a class="brand" href="/"><img class="brand-mark" src="https://pub-87ce856b3b634038bd41c8f985892c19.r2.dev/brand/logo.png" width="28" height="28" alt="" aria-hidden="true"><span>Omini Studio</span></a>
+
     <nav class="links" id="site-nav" aria-label="Main">
+
       <a href="/#how">How it works</a>
+
       <a href="/#examples" data-examples-link hidden>Examples</a>
+
       <a href="/pricing" aria-current="page">Pricing</a>
+
       <a href="/about">About</a>
+
       <a class="button menu-only" href="mailto:support@oministudio.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request early access</a>
+
     </nav>
+
     <div class="actions">
+
       <span class="pill">Private beta</span>
+
       <button type="button" class="icon-button theme-toggle" aria-label="Switch between light and dark">
+
         <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+
         <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+
       </button>
+
       <a class="button ink small" href="mailto:support@oministudio.com?subject=Early%20access%20to%20Omini%20Studio&amp;body=Hi%2C%20I%20would%20like%20early%20access%20to%20Omini%20Studio.%0A%0AMy%20channel%20or%20website%3A%20">Request access</a>
+
       <button type="button" class="icon-button menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+
       </button>
+
     </div>
+
   </header>
 
+
+
   <main>
+
     <section class="page-hero">
+
       <p class="eyebrow">Pricing &middot; US dollars</p>
+
       <h1 class="serif">Pricing</h1>
+
       <div class="period-toggle" role="group" aria-label="Billing period">
+
         <button type="button" data-period="month" class="is-selected" aria-pressed="true">Monthly</button>
+
         <button type="button" data-period="year" aria-pressed="false">Yearly <span class="save">2 months free</span></button>
+
       </div>
+
     </section>
+
+
 
     <section class="tiers" aria-label="Plans">
       <article class="tier">
         <div class="tier-head"><h2>Starter</h2></div>
-        <p class="price"><span class="amount" data-month="$20" data-year="$200">$20</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
-        <p class="rate">100 credits a month &middot; <span data-month="$0.20 a credit" data-year="$0.167 a credit">$0.20 a credit</span></p>
+        <p class="price"><span class="amount" data-month="$15" data-year="$150">$15</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">20 credits a month</p>
         <ul class="checks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>5 videos a month</strong> under 10 minutes <span class="year-total" data-month="" data-year="(60 a year)"></span></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Uploading and checking audio</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>Up to 20 video minutes a month</strong> <span class="year-total" data-month="" data-year="(240 a year)"></span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Videos up to 15 minutes each</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Upload a voice-over or use a script</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Final video export included</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Unlimited downloads</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Retrying anything that failed on our side</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Reusing approved narration in another render</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Re-exporting an approved final</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Buy extra credits any time</span></li>
         </ul>
         <a class="button ghost" href="mailto:support@oministudio.com?subject=Early%20access%3A%20Starter%20plan">Request access</a>
       </article>
+
       <article class="tier featured">
-        <div class="tier-head"><h2>Studio</h2><span class="badge">Most chosen</span></div>
-        <p class="price"><span class="amount" data-month="$49" data-year="$490">$49</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
-        <p class="rate">280 credits a month &middot; <span data-month="$0.175 a credit" data-year="$0.146 a credit">$0.175 a credit</span></p>
+        <div class="tier-head"><h2>Creator</h2><span class="badge">Most popular</span></div>
+        <p class="price"><span class="amount" data-month="$35" data-year="$350">$35</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">60 credits a month</p>
         <ul class="checks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>14 videos a month</strong> under 10 minutes <span class="year-total" data-month="" data-year="(168 a year)"></span></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Uploading and checking audio</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>Up to 60 video minutes a month</strong> <span class="year-total" data-month="" data-year="(720 a year)"></span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Videos up to 15 minutes each</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Upload a voice-over or use a script</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Final video export included</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Unlimited downloads</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Retrying anything that failed on our side</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Reusing approved narration in another render</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Re-exporting an approved final</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Buy extra credits any time</span></li>
         </ul>
-        <a class="button" href="mailto:support@oministudio.com?subject=Early%20access%3A%20Studio%20plan">Request access</a>
+        <a class="button" href="mailto:support@oministudio.com?subject=Early%20access%3A%20Creator%20plan">Request access</a>
       </article>
+
       <article class="tier">
-        <div class="tier-head"><h2>Scale</h2></div>
-        <p class="price"><span class="amount" data-month="$99" data-year="$990">$99</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
-        <p class="rate">600 credits a month &middot; <span data-month="$0.165 a credit" data-year="$0.138 a credit">$0.165 a credit</span></p>
+        <div class="tier-head"><h2>Studio</h2></div>
+        <p class="price"><span class="amount" data-month="$69" data-year="$690">$69</span><span class="per" data-month="/month" data-year="/year">/month</span></p>
+        <p class="rate">150 credits a month</p>
         <ul class="checks">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>30 videos a month</strong> under 10 minutes <span class="year-total" data-month="" data-year="(360 a year)"></span></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Narration up to 15 minutes</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Approved final export included</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Uploading and checking audio</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span><strong>Up to 150 video minutes a month</strong> <span class="year-total" data-month="" data-year="(1,800 a year)"></span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Videos up to 15 minutes each</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Upload a voice-over or use a script</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Final video export included</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Unlimited downloads</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Retrying anything that failed on our side</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Reusing approved narration in another render</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Re-exporting an approved final</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg><span>Buy extra credits any time</span></li>
         </ul>
-        <a class="button ghost" href="mailto:support@oministudio.com?subject=Early%20access%3A%20Scale%20plan">Request access</a>
+        <a class="button ghost" href="mailto:support@oministudio.com?subject=Early%20access%3A%20Studio%20plan">Request access</a>
       </article>
     </section>
-    <p class="fine">Credits arrive monthly, and you can always buy a credit pack on top — with or without a plan.</p>
+
+    <p class="fine"><strong>1 credit = 1 minute of generated video.</strong> Partial minutes round up to the next full credit. Subscription credits reset each billing period.</p>
+
+    <section class="section split" aria-label="Credit packs">
+      <div>
+        <p class="eyebrow">Pay as you go</p>
+        <h2 class="serif display-4">Need more minutes?</h2>
+        <p>Buy extra credits any time, with or without a subscription. Purchased credits are valid for 12 months.</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary><span>20 credits · $18</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>20 video minutes. Use them across videos up to 15 minutes each.</p>
+        </details>
+        <details>
+          <summary><span>60 credits · $45</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>60 video minutes. Better suited to occasional extra production without changing plans.</p>
+        </details>
+        <details>
+          <summary><span>150 credits · $99</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>150 video minutes for heavier one-off usage.</p>
+        </details>
+      </div>
+    </section>
 
     <section class="section split">
       <div>
@@ -115,13 +193,25 @@
         <p>Anything else, write to <a class="inline-link" href="mailto:support@oministudio.com">support@oministudio.com</a>.</p>
       </div>
       <div class="faq">
+        <details open>
+          <summary><span>How do credits work?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>One credit equals one minute of generated video. Partial minutes round up to the next full credit.</p>
+        </details>
+        <details>
+          <summary><span>How long can each video be?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>All plans and credit packs support videos up to 15 minutes each, as long as you have enough credits.</p>
+        </details>
         <details>
           <summary><span>Which credits get spent first?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
-          <p>Credits that expire soonest, so a plan's allowance goes before a pack.</p>
+          <p>Credits that expire soonest are used first, so monthly plan credits are spent before purchased credit packs.</p>
+        </details>
+        <details>
+          <summary><span>Do credits roll over?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
+          <p>Subscription credits reset each billing period. Purchased credit packs are valid for 12 months.</p>
         </details>
         <details>
           <summary><span>When do plan changes take effect?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
-          <p>Next billing period. Credits you already hold are not touched.</p>
+          <p>At the next billing period. Credits you already hold are not touched.</p>
         </details>
         <details>
           <summary><span>Can I cash out or transfer credits?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></summary>
@@ -134,49 +224,96 @@
       </div>
     </section>
 
+
+
     <div class="band-wrap">
+
       <section class="band">
+
         <div>
+
           <h2 class="serif">Questions about a plan?</h2>
+
           <p>Write to support@oministudio.com and a person will answer.</p>
+
         </div>
+
         <a class="button light" href="mailto:support@oministudio.com">Email us</a>
+
       </section>
+
     </div>
+
   </main>
 
+
+
   <footer class="site-footer">
+
     <div class="footer-top">
+
       <div>
+
         <a class="brand" href="/"><img class="brand-mark" src="https://pub-87ce856b3b634038bd41c8f985892c19.r2.dev/brand/logo.png" width="28" height="28" alt="" aria-hidden="true"><span>Omini Studio</span></a>
+
         <p class="tagline">Narration in, explainer video out.</p>
+
       </div>
+
       <div class="footer-links">
+
         <nav aria-label="Product">
+
           <span>Product</span>
+
           <a href="/#how">How it works</a>
+
           <a href="/#examples" data-examples-link hidden>Examples</a>
+
           <a href="/pricing">Pricing</a>
+
         </nav>
+
         <nav aria-label="Company">
+
           <span>Company</span>
+
           <a href="/about">About</a>
+
           <a href="mailto:support@oministudio.com">Contact</a>
+
         </nav>
+
         <nav aria-label="Legal">
+
           <span>Legal</span>
+
           <a href="/terms">Terms of service</a>
+
           <a href="/privacy">Privacy policy</a>
+
           <a href="/refunds">Refund policy</a>
+
         </nav>
+
       </div>
+
     </div>
+
     <div class="footer-bottom">
+
       <span>&#169; 2026 Omini Studio &middot; Injectflow Core (RC 8860651)</span>
+
       <span>oministudio.com</span>
+
     </div>
+
   </footer>
 
+
+
   <script src="/site.js"></script>
+
 </body>
+
 </html>
