@@ -191,3 +191,144 @@ var SAMPLES = [];
     });
   });
 })();
+
+// Pricing: enhance the numbers above with live figures from the app, if it
+// answers in time. The markup already has the current prices baked in as the
+// default; each card updates independently and falls back to its own static
+// default whenever its own data is missing, malformed, or can't be ranked
+// unambiguously — never a page-wide all-or-nothing swap. Cards are matched to
+// plans/packs by price/size rank (cheapest tier first, smallest pack first),
+// matching how they're laid out on the page — not by name, which can
+// currently collide across tiers during the transition to this page's names
+// (e.g. the backend still has a plan literally named "Studio" priced like
+// this page's middle tier, not its top one).
+(function () {
+  var tiers = Array.prototype.slice.call(document.querySelectorAll(".tiers .tier"));
+  var packs = Array.prototype.slice.call(
+    document.querySelectorAll('section[aria-label="Credit packs"] .faq details')
+  );
+  if (!tiers.length && !packs.length) return;
+  if (!("fetch" in window)) return;
+
+  // Upper bounds are deliberately generous — just enough to catch a backend
+  // unit mistake (e.g. cents sent as dollars) or a negative/zero/"unlimited"
+  // sentinel, without second-guessing a legitimate future price change.
+  // Returns NaN (not null) on anything implausible so this doubles as a rank
+  // key: an implausible value makes rankUnambiguously refuse the *whole*
+  // group below, rather than just this one field, so it can't silently push
+  // a neighboring, perfectly valid entry into the wrong rank slot.
+  function plausible(value) {
+    var n = parseFloat(value);
+    return isFinite(n) && n > 0 && n <= 100000 ? n : NaN;
+  }
+  function dollars(value) {
+    var n = plausible(value);
+    if (isNaN(n)) return null;
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2 });
+  }
+  function wholeNumber(value) {
+    var n = plausible(value);
+    return isNaN(n) ? null : Math.round(n);
+  }
+  function pluralize(count, word) {
+    return count.toLocaleString("en-US") + " " + word + (count === 1 ? "" : "s");
+  }
+  function currentPeriod() {
+    var pressed = document.querySelector(".period-toggle button[aria-pressed='true']");
+    var period = pressed && pressed.getAttribute("data-period");
+    return period === "year" ? "year" : "month";
+  }
+
+  function applyTier(tier, plan) {
+    var monthly = dollars(plan && plan.monthlyUsd);
+    var annual = dollars(plan && plan.annualUsd);
+    var credits = wholeNumber(plan && plan.monthlyCredits);
+    if (monthly === null || annual === null || credits === null) return;
+    var amount = tier.querySelector(".price .amount");
+    if (amount) {
+      amount.setAttribute("data-month", monthly);
+      amount.setAttribute("data-year", annual);
+      // Reflect whichever period is on screen right now, not just monthly —
+      // a visitor may have already switched to yearly before this resolves.
+      amount.textContent = currentPeriod() === "year" ? annual : monthly;
+    }
+    var rate = tier.querySelector(".rate");
+    if (rate && /^\d+ credits a month$/.test(rate.textContent.trim())) {
+      rate.textContent = pluralize(credits, "credit") + " a month";
+    }
+    var strong = tier.querySelector(".checks li strong");
+    if (strong && /^Up to \d+ video minutes a month$/.test(strong.textContent.trim())) {
+      strong.textContent = "Up to " + pluralize(credits, "video minute") + " a month";
+    }
+    var yearTotal = tier.querySelector(".checks li .year-total");
+    if (yearTotal) {
+      yearTotal.setAttribute("data-year", "(" + pluralize(credits * 12, "minute") + " a year)");
+      if (currentPeriod() === "year") yearTotal.textContent = yearTotal.getAttribute("data-year");
+    }
+  }
+
+  function applyPack(details, pack) {
+    var span = details.querySelector("summary span");
+    var amount = dollars(pack && pack.amountUsd);
+    var credits = wholeNumber(pack && pack.credits);
+    if (!span || amount === null || credits === null) return;
+    if (/^\d+ credits · \$\d+(?:\.\d+)?$/.test(span.textContent.trim())) {
+      span.textContent = pluralize(credits, "credit") + " · " + amount;
+    }
+  }
+
+  // Sorts `list` by `keyFn` ascending and returns it, or null if the result
+  // would be ambiguous: a different count than the cards on the page, a
+  // non-numeric key, or a tie (two items ranking equal, so "first" and
+  // "second" aren't well-defined). Refusing on any of these means a card is
+  // only ever updated when its rank is unambiguous.
+  function rankUnambiguously(list, keyFn, expectedLength) {
+    if (list.length !== expectedLength) return null;
+    var keyed = list.map(function (item) { return { item: item, key: keyFn(item) }; });
+    if (!keyed.every(function (k) { return isFinite(k.key); })) return null;
+    keyed.sort(function (a, b) { return a.key - b.key; });
+    for (var i = 1; i < keyed.length; i++) {
+      if (keyed[i].key <= keyed[i - 1].key) return null;
+    }
+    return keyed.map(function (k) { return k.item; });
+  }
+
+  var options = {};
+  try {
+    if (window.AbortSignal && AbortSignal.timeout) options.signal = AbortSignal.timeout(4000);
+  } catch (e) {}
+
+  fetch("https://app.oministudio.com/api/public/pricing", options)
+    .then(function (response) {
+      if (!response.ok) throw new Error("pricing endpoint returned " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      var plans = Array.isArray(data && data.plans) ? data.plans : [];
+      var creditPacks = Array.isArray(data && data.creditPacks) ? data.creditPacks : [];
+      var rankedPlans = rankUnambiguously(
+        plans,
+        function (p) { return plausible(p && p.monthlyUsd); },
+        tiers.length
+      );
+      if (rankedPlans) {
+        tiers.forEach(function (tier, i) { applyTier(tier, rankedPlans[i]); });
+      } else if (window.console) {
+        console.warn("pricing: plans from the API couldn't be ranked unambiguously against the page's tiers; static prices left as-is", plans);
+      }
+      var rankedPacks = rankUnambiguously(
+        creditPacks,
+        function (c) { return plausible(c && c.credits); },
+        packs.length
+      );
+      if (rankedPacks) {
+        packs.forEach(function (details, i) { applyPack(details, rankedPacks[i]); });
+      } else if (window.console) {
+        console.warn("pricing: credit packs from the API couldn't be ranked unambiguously against the page's packs; static prices left as-is", creditPacks);
+      }
+    })
+    .catch(function () {
+      // Offline, blocked, timed out, or shaped unexpectedly — the static
+      // numbers already on the page are the fallback, not an error state.
+    });
+})();
