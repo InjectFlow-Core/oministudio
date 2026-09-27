@@ -42,22 +42,20 @@ var SAMPLES = [];
   });
 })();
 
-// Home: the narration timeline. A playhead sweeps across the waveform on a
-// loop, lighting the bars it has passed and the beat whose scene is on
-// screen. Clicking a beat jumps there. It is an illustration, not a player.
+// Home: the narration timeline. A playhead sweeps across the waveform as the
+// hero video plays, lighting the bars it has passed and the beat whose line
+// is on screen. Clicking a beat seeks the video there.
 (function () {
   var track = document.querySelector(".track");
   if (!track) return;
+  var video = track.closest("figure") && track.closest("figure").querySelector("video");
+  if (!video) return;
   var wave = track.querySelector(".wave");
   var head = track.querySelector(".playhead");
   var beats = Array.prototype.slice.call(track.querySelectorAll(".beat"));
   var starts = beats.map(function (b) { return parseFloat(b.getAttribute("data-start")) || 0; });
-  var LOOP = 12000;
-  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var bars = [];
-  var progress = still ? 1 : 0;
-  var last = null;
-  var visible = true;
+  var raf = null;
 
   function height(i) {
     return 8 + Math.round(Math.abs(Math.sin(i * 0.37) * Math.cos(i * 0.113) + Math.sin(i * 1.7) * 0.25) * 34);
@@ -75,35 +73,46 @@ var SAMPLES = [];
     }
   }
   function paint() {
+    var progress = video.duration ? video.currentTime / video.duration : 0;
     var lit = Math.round(progress * bars.length);
     for (var i = 0; i < bars.length; i++) bars[i].classList.toggle("lit", i < lit);
     if (head) head.style.left = (progress * 100) + "%";
     var current = 0;
-    for (var j = 0; j < starts.length; j++) if (progress >= starts[j]) current = j;
-    beats.forEach(function (b, k) { b.classList.toggle("active", k === current); });
+    for (var j = 0; j < starts.length; j++) if (video.currentTime >= starts[j]) current = j;
+    beats.forEach(function (b, k) {
+      var shown = k === current || k === current - 1;
+      b.classList.toggle("active", k === current);
+      b.classList.toggle("prev", k === current - 1);
+      b.parentElement.classList.toggle("shown", shown);
+    });
   }
-  function tick(now) {
-    if (last !== null && visible) progress = (progress + (now - last) / LOOP) % 1;
-    last = now;
+  function loop() {
     paint();
-    window.requestAnimationFrame(tick);
+    if (!video.paused && !video.ended) raf = window.requestAnimationFrame(loop);
+  }
+  function play() {
+    if (raf === null) raf = window.requestAnimationFrame(loop);
+  }
+  function stop() {
+    if (raf !== null) window.cancelAnimationFrame(raf);
+    raf = null;
+    paint();
   }
 
   beats.forEach(function (beat, k) {
     beat.addEventListener("click", function () {
-      progress = starts[k];
+      video.currentTime = starts[k];
       paint();
     });
   });
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting;
-    }).observe(track);
-  }
+  video.addEventListener("play", play);
+  video.addEventListener("pause", stop);
+  video.addEventListener("ended", stop);
+  video.addEventListener("seeked", paint);
+  video.addEventListener("loadedmetadata", paint);
   window.addEventListener("resize", function () { build(); paint(); });
   build();
   paint();
-  if (!still) window.requestAnimationFrame(tick);
 })();
 
 // Home: sample videos.
