@@ -177,8 +177,11 @@ var DEMOS_URL = "https://app.oministudio.com/api/public/demos";
           part[1].forEach(function (demo) { grid.appendChild(card(demo)); });
           section.hidden = false;
         });
-        var empty = page.querySelector("[data-demos-empty]");
-        if (empty) empty.hidden = demos.length > 0;
+        // Nothing to show: links here are hidden, so a direct visit goes home.
+        if (!demos.length) {
+          window.location.replace("/");
+          return;
+        }
         var channel = page.querySelector("[data-demos-channel]");
         if (channel && demos.length && typeof data.channelUrl === "string" && /^https:\/\/www\.youtube\.com\//.test(data.channelUrl)) {
           channel.href = data.channelUrl;
@@ -195,9 +198,9 @@ var DEMOS_URL = "https://app.oministudio.com/api/public/demos";
       }
     })
     .catch(function () {
-      // Nothing to show is not an error: the sections stay hidden.
-      var empty = page && page.querySelector("[data-demos-empty]");
-      if (empty) empty.hidden = false;
+      // The list could not be loaded: the home sections stay hidden, and the
+      // demos page has nothing to offer, so it goes home.
+      if (page) window.location.replace("/");
     });
 })();
 

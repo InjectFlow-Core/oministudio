@@ -522,7 +522,6 @@ img, video { max-width: 100%; display: block; }
 .sample.is-short .demo-play, .sample.is-short iframe { aspect-ratio: 9 / 16; }
 .samples.shorts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .demos-more { margin-top: 40px; text-align: center; }
-.demos-empty p { text-align: center; color: var(--muted); font-size: 17px; }
 .demos-foot { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; padding-top: 0; }
 @media (max-width: 760px) {
   .samples, .samples.shorts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
