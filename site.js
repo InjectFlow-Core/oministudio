@@ -171,6 +171,15 @@ var SAMPLES = [];
   });
 })();
 
+// A plan card's button goes straight to that plan's checkout in the app, for
+// the billing period on screen. Signed-out visitors sign in first and are
+// returned there; the app resolves the plan's name to its current version.
+function setPlanLink(link, period) {
+  var plan = link.getAttribute("data-plan");
+  if (!plan || !/^[a-z0-9-]+$/.test(plan)) return;
+  link.setAttribute("href", "https://app.oministudio.com/credits?plan=" + plan + "&period=" + (period === "year" ? "year" : "month"));
+}
+
 // Pricing: swap every monthly figure for its yearly one. Each element
 // carries both, so nothing here has to know what a tier costs.
 (function () {
@@ -189,6 +198,7 @@ var SAMPLES = [];
     figures.forEach(function (figure) {
       figure.textContent = figure.getAttribute("data-" + period);
     });
+    document.querySelectorAll(".plan-cta").forEach(function (link) { setPlanLink(link, period); });
   });
 })();
 
@@ -266,6 +276,11 @@ var SAMPLES = [];
       if (currentPeriod() === "year") yearTotal.textContent = yearTotal.getAttribute("data-year");
     }
     applyQuality(tier, plan.videoQuality);
+    var cta = tier.querySelector(".plan-cta");
+    if (cta && typeof plan.slug === "string") {
+      cta.setAttribute("data-plan", plan.slug);
+      setPlanLink(cta, currentPeriod());
+    }
   }
 
   // The plan's video quality, as a line after "Final video export included".
