@@ -511,3 +511,20 @@ img, video { max-width: 100%; display: block; }
   .topbar .actions .dashboard-link { display: none; }
   .topbar.nav-open .links .menu-only-link { display: block; }
 }
+
+/* Demos: a thumbnail that becomes the player on click (home and /demos) */
+.demo-play { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 14px; overflow: hidden; background: var(--video); cursor: pointer; aspect-ratio: 16 / 9; }
+.demo-play img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+.demo-play:hover img { transform: scale(1.03); }
+.demo-play-icon { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(0, 0, 0, .6); }
+.demo-play-icon::after { content: ""; position: absolute; left: 26px; top: 20px; border-style: solid; border-width: 12px 0 12px 20px; border-color: transparent transparent transparent #fff; }
+.sample iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 14px; background: var(--video); }
+.sample.is-short .demo-play, .sample.is-short iframe { aspect-ratio: 9 / 16; }
+.samples.shorts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.demos-more { margin-top: 40px; text-align: center; }
+.demos-empty p { text-align: center; color: var(--muted); font-size: 17px; }
+.demos-foot { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; padding-top: 0; }
+@media (max-width: 760px) {
+  .samples, .samples.shorts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .samples:not(.shorts) { grid-template-columns: minmax(0, 1fr); }
+}

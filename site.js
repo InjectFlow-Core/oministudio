@@ -1,13 +1,10 @@
 // Behaviour shared by every page. Each block checks that its markup exists,
 // so a page without that part is left alone.
 
-// Sample videos for the home page's "Made with Omini Studio" section. The
-// section and its nav link stay hidden until this list has an entry. To add
-// one, put the files next to this script and add a line such as:
-//   { title: "Why the Moon has phases", topic: "Astronomy",
-//     note: "Made from a 2-minute voice note", length: "2:04",
-//     src: "/samples/moon-phases.mp4", poster: "/samples/moon-phases.jpg" },
-var SAMPLES = [];
+// Demo videos come from the app (/api/public/demos), which reads the studio's
+// channel as set in its admin. The home page shows a few; /demos shows them
+// all. Links to /demos stay hidden until there is something to show.
+var DEMOS_URL = "https://app.oministudio.com/api/public/demos";
 
 // Light / dark switch. The choice is remembered in the browser; the inline
 // script in each page's head applies it before first paint.
@@ -115,35 +112,93 @@ var SAMPLES = [];
   paint();
 })();
 
-// Home: sample videos.
+// Demos: the home page's "Made with Omini Studio" and the /demos page.
 (function () {
-  var section = document.getElementById("examples");
-  var grid = document.querySelector(".samples");
-  if (!SAMPLES.length) return;
-  document.querySelectorAll("[data-examples-link]").forEach(function (link) {
-    link.hidden = false;
-  });
-  if (!section || !grid) return;
-  SAMPLES.forEach(function (sample) {
-    var card = document.createElement("article");
-    card.className = "sample";
-    var video = document.createElement("video");
-    video.controls = true;
-    video.preload = "none";
-    video.src = sample.src;
-    if (sample.poster) video.poster = sample.poster;
-    card.appendChild(video);
-    [["span", "topic", sample.topic], ["h3", "", sample.title], ["p", "", [sample.note, sample.length].filter(Boolean).join(" · ")]]
-      .forEach(function (part) {
-        if (!part[2]) return;
-        var el = document.createElement(part[0]);
-        if (part[1]) el.className = part[1];
-        el.textContent = part[2];
-        card.appendChild(el);
-      });
-    grid.appendChild(card);
-  });
-  section.hidden = false;
+  var homeGrid = document.querySelector("#examples .samples");
+  var page = document.querySelector("[data-demos-page]");
+  var links = document.querySelectorAll("[data-examples-link]");
+  if (!homeGrid && !page && !links.length) return;
+  if (!("fetch" in window)) return;
+
+  function safe(demo) {
+    return demo && /^[A-Za-z0-9_-]{11}$/.test(demo.id) &&
+      typeof demo.thumbnail === "string" && /^https:\/\/i\d?\.ytimg\.com\//.test(demo.thumbnail);
+  }
+
+  // A thumbnail until clicked: the player and its scripts load only for a
+  // video someone actually wants to watch.
+  function card(demo) {
+    var item = document.createElement("article");
+    item.className = "sample" + (demo.isShort ? " is-short" : "");
+    var play = document.createElement("button");
+    play.type = "button";
+    play.className = "demo-play";
+    play.setAttribute("aria-label", "Play: " + (demo.title || "demo video"));
+    var img = document.createElement("img");
+    img.src = demo.thumbnail;
+    img.alt = "";
+    img.loading = "lazy";
+    play.appendChild(img);
+    var icon = document.createElement("span");
+    icon.className = "demo-play-icon";
+    icon.setAttribute("aria-hidden", "true");
+    play.appendChild(icon);
+    play.addEventListener("click", function () {
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + demo.id + "?autoplay=1&rel=0&playsinline=1";
+      frame.title = demo.title || "Demo video";
+      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      play.replaceWith(frame);
+    });
+    item.appendChild(play);
+    if (demo.title) {
+      var title = document.createElement("h3");
+      title.textContent = demo.title;
+      item.appendChild(title);
+    }
+    return item;
+  }
+
+  fetch(DEMOS_URL)
+    .then(function (response) {
+      if (!response.ok) throw new Error("demos endpoint returned " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      var demos = (Array.isArray(data && data.demos) ? data.demos : []).filter(safe);
+      if (page) {
+        var videos = demos.filter(function (d) { return !d.isShort; });
+        var shorts = demos.filter(function (d) { return d.isShort; });
+        [["[data-demos-videos]", videos], ["[data-demos-shorts]", shorts]].forEach(function (part) {
+          var section = page.querySelector(part[0]);
+          if (!section || !part[1].length) return;
+          var grid = section.querySelector(".samples");
+          part[1].forEach(function (demo) { grid.appendChild(card(demo)); });
+          section.hidden = false;
+        });
+        var empty = page.querySelector("[data-demos-empty]");
+        if (empty) empty.hidden = demos.length > 0;
+        var channel = page.querySelector("[data-demos-channel]");
+        if (channel && demos.length && typeof data.channelUrl === "string" && /^https:\/\/www\.youtube\.com\//.test(data.channelUrl)) {
+          channel.href = data.channelUrl;
+          channel.hidden = false;
+        }
+      }
+      if (!demos.length) return;
+      links.forEach(function (link) { link.hidden = false; });
+      if (homeGrid) {
+        // Full-length videos first; Shorts fill in when there are fewer than three.
+        var pick = demos.filter(function (d) { return !d.isShort; }).concat(demos.filter(function (d) { return d.isShort; })).slice(0, 3);
+        pick.forEach(function (demo) { homeGrid.appendChild(card(demo)); });
+        document.getElementById("examples").hidden = false;
+      }
+    })
+    .catch(function () {
+      // Nothing to show is not an error: the sections stay hidden.
+      var empty = page && page.querySelector("[data-demos-empty]");
+      if (empty) empty.hidden = false;
+    });
 })();
 
 // Fade-up reveal for step and value cards as they scroll into view.
