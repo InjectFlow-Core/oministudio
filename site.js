@@ -265,6 +265,36 @@ var SAMPLES = [];
       yearTotal.setAttribute("data-year", "(" + pluralize(credits * 12, "minute") + " a year)");
       if (currentPeriod() === "year") yearTotal.textContent = yearTotal.getAttribute("data-year");
     }
+    applyQuality(tier, plan.videoQuality);
+  }
+
+  // The plan's video quality, as a line after "Final video export included".
+  // The app leaves `videoQuality` out when it is switched off for this page,
+  // so the line is only ever added from live data and removed otherwise.
+  function applyQuality(tier, quality) {
+    var list = tier.querySelector(".checks");
+    if (!list) return;
+    var existing = list.querySelector("li.video-quality");
+    var name = quality && typeof quality.name === "string" ? quality.name.trim() : "";
+    var fps = wholeNumber(quality && quality.fps);
+    if (!name || fps === null || name.length > 40) {
+      if (existing) existing.remove();
+      return;
+    }
+    var line = existing;
+    if (!line) {
+      var template = list.querySelector("li");
+      if (!template) return;
+      line = template.cloneNode(true);
+      line.className = "video-quality";
+      var anchor = Array.prototype.find.call(list.children, function (li) {
+        return /^Final video export included$/.test(li.textContent.trim());
+      });
+      list.insertBefore(line, anchor ? anchor.nextSibling : null);
+    }
+    var span = line.querySelector("span");
+    if (!span) return;
+    span.textContent = name + " video at " + fps + " fps";
   }
 
   function applyPack(details, pack) {
