@@ -1,0 +1,12 @@
+// Cloudflare Workers static assets for oministudio.com (deployed by Workers
+// Builds on push to main). Only here to serve 404.html for unknown paths;
+// without it Workers answers an unknown URL with an empty 404 and the
+// browser shows its own error page.
+{
+  "name": "oministudio",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}
