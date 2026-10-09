@@ -501,3 +501,13 @@ img, video { max-width: 100%; display: block; }
   .footer-links { flex-wrap: wrap; gap: 32px 56px; }
   .footer-bottom { flex-direction: column; gap: 6px; font-size: 12px; }
 }
+
+/* Header: a way back into the app for returning customers. The app sends
+   them to their projects, or to sign-in when they are signed out. */
+.dashboard-link { font-size: 15px; font-weight: 500; color: var(--ink); }
+.dashboard-link:hover { color: var(--accent); }
+.topbar .links .menu-only-link { display: none; }
+@media (max-width: 760px) {
+  .topbar .actions .dashboard-link { display: none; }
+  .topbar.nav-open .links .menu-only-link { display: block; }
+}
