@@ -177,7 +177,7 @@ var SAMPLES = [];
 function setPlanLink(link, period) {
   var plan = link.getAttribute("data-plan");
   if (!plan || !/^[a-z0-9-]+$/.test(plan)) return;
-  link.setAttribute("href", "https://app.oministudio.com/credits?plan=" + plan + "&period=" + (period === "year" ? "year" : "month"));
+  link.setAttribute("href", "https://app.oministudio.com/checkout?plan=" + plan + "&period=" + (period === "year" ? "year" : "month"));
 }
 
 // Pricing: swap every monthly figure for its yearly one. Each element
