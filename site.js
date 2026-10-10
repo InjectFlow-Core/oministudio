@@ -275,7 +275,8 @@ function setPlanLink(link, period) {
   var packs = Array.prototype.slice.call(
     document.querySelectorAll('section[aria-label="Credit packs"] .faq details')
   );
-  if (!tiers.length && !packs.length) return;
+  var globalLengths = Array.prototype.slice.call(document.querySelectorAll(".max-length-global"));
+  if (!tiers.length && !packs.length && !globalLengths.length) return;
   if (!("fetch" in window)) return;
 
   // Upper bounds are deliberately generous — just enough to catch a backend
@@ -333,6 +334,9 @@ function setPlanLink(link, period) {
       yearTotal.setAttribute("data-year", "(" + pluralize(credits * 12, "minute") + " a year)");
       if (currentPeriod() === "year") yearTotal.textContent = yearTotal.getAttribute("data-year");
     }
+    var maxLength = tier.querySelector(".max-length");
+    var maxMinutes = wholeNumber(plan.maxVideoMinutes);
+    if (maxLength && maxMinutes !== null) maxLength.textContent = pluralize(maxMinutes, "minute");
     applyQuality(tier, plan.videoQuality);
     var cta = tier.querySelector(".plan-cta");
     if (cta && typeof plan.slug === "string") {
@@ -368,6 +372,25 @@ function setPlanLink(link, period) {
     var span = line.querySelector("span");
     if (!span) return;
     span.textContent = name + " video at " + fps + " fps";
+  }
+
+  // The longest video without a plan, wherever the page states it, and the
+  // FAQ answer: one length for everything, or each plan's when they differ.
+  function applyMaxLength(globalMinutes, rankedPlans) {
+    if (globalMinutes === null) return;
+    globalLengths.forEach(function (span) { span.textContent = pluralize(globalMinutes, "minute"); });
+    var faq = document.querySelector(".max-length-faq");
+    if (!faq || !rankedPlans) return;
+    var perPlan = tiers.map(function (tier, i) {
+      var name = tier.querySelector(".tier-head h2");
+      return { name: name ? name.textContent.trim() : "", minutes: wholeNumber(rankedPlans[i].maxVideoMinutes) };
+    });
+    if (perPlan.some(function (p) { return !p.name || p.minutes === null; })) return;
+    if (perPlan.every(function (p) { return p.minutes === globalMinutes; })) return;
+    faq.textContent = "Max video length depends on your plan: " +
+      perPlan.map(function (p) { return p.name + " " + pluralize(p.minutes, "minute"); }).join(", ") +
+      ". With credit packs alone it is " + pluralize(globalMinutes, "minute") +
+      ". Either way, you need enough credits for the length.";
   }
 
   function applyPack(details, pack) {
@@ -416,9 +439,10 @@ function setPlanLink(link, period) {
       );
       if (rankedPlans) {
         tiers.forEach(function (tier, i) { applyTier(tier, rankedPlans[i]); });
-      } else if (window.console) {
+      } else if (tiers.length && window.console) {
         console.warn("pricing: plans from the API couldn't be ranked unambiguously against the page's tiers; static prices left as-is", plans);
       }
+      applyMaxLength(wholeNumber(data && data.maxVideoMinutes), rankedPlans);
       var rankedPacks = rankUnambiguously(
         creditPacks,
         function (c) { return plausible(c && c.credits); },
@@ -426,7 +450,7 @@ function setPlanLink(link, period) {
       );
       if (rankedPacks) {
         packs.forEach(function (details, i) { applyPack(details, rankedPacks[i]); });
-      } else if (window.console) {
+      } else if (packs.length && window.console) {
         console.warn("pricing: credit packs from the API couldn't be ranked unambiguously against the page's packs; static prices left as-is", creditPacks);
       }
     })
