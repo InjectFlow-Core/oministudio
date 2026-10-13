@@ -411,6 +411,53 @@ img, video { max-width: 100%; display: block; }
 .doc th, .doc td { padding: 12px 12px 12px 0; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
 .doc th { font-weight: 600; }
 
+/* Guides: figures, screenshots, audio pairs, the step flow and the closing call to action. */
+.doc figure { margin: 28px 0 32px; }
+.doc figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.doc figure.narrow img { max-width: 380px; width: 100%; }
+.doc figure.mid img { max-width: 560px; width: 100%; }
+.doc figcaption { margin-top: 12px; font-size: 14px; line-height: 1.6; color: var(--muted); text-align: center; }
+.doc .player { max-width: none; }
+.doc .player figcaption { margin: 0; padding: 12px 16px; text-align: left; }
+.doc ol { margin: 0 0 14px; padding-left: 22px; }
+.doc .flow { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.doc .flow li { margin: 0; flex: 1 1 120px; display: flex; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); font-size: 15px; line-height: 1.4; }
+.flow .n { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--tint); color: var(--accent); font-size: 13px; font-weight: 700; }
+.flow strong { font-weight: 600; }
+.flow span.d { color: var(--muted); font-size: 14px; }
+.listen { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 28px; }
+.listen div { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.listen p { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+.listen audio { width: 100%; }
+.note { margin: 20px 0; padding: 18px 20px; border-left: 3px solid var(--accent); background: var(--tint); border-radius: 0 12px 12px 0; }
+.doc .note p:last-child, .doc .note ul:last-child { margin-bottom: 0; }
+.venn { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; }
+.venn circle { fill: var(--accent); fill-opacity: .12; stroke: var(--accent); stroke-width: 1.5; }
+.venn text { fill: var(--ink); font-family: var(--font); font-size: 15px; font-weight: 600; text-anchor: middle; }
+.venn text.mid { fill: var(--accent); font-weight: 700; }
+.doc .band { margin-top: 64px; gap: 32px; padding: 40px; }
+.doc .band h2 { margin: 0; font-size: 28px; scroll-margin-top: 96px; }
+.doc .band p { margin: 10px 0 0; font-size: 16px; }
+.doc .band a.button { color: var(--ink); }
+.doc .eyebrow.back { margin: 0 0 16px; }
+.doc .eyebrow.back a { color: var(--muted); text-decoration: none; }
+.doc .eyebrow.back a:hover { color: var(--accent); }
+
+/* Blog index */
+.posts-section { border-top: 0; padding-top: 64px; }
+.posts { list-style: none; margin: 0 auto; padding: 0; max-width: 820px; display: flex; flex-direction: column; gap: 16px; }
+.posts a { display: flex; flex-direction: column; gap: 10px; padding: 28px 32px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); text-decoration: none; transition: border-color .15s; }
+.posts a:hover { border-color: var(--accent); color: var(--ink); }
+.posts .date { font-size: 13px; color: var(--muted); }
+.posts h2 { font-size: 24px; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; }
+.posts p { font-size: 16px; line-height: 1.6; color: var(--muted); }
+.posts .more { font-size: 15px; font-weight: 600; color: var(--accent); }
+@media (max-width: 760px) {
+  .posts-section { padding-top: 40px; }
+  .posts a { padding: 22px 20px; }
+  .posts h2 { font-size: 20px; }
+}
+
 /* Footer */
 .site-footer { padding: 72px var(--gutter) 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 56px; }
 .footer-top { display: flex; justify-content: space-between; gap: 64px; }
@@ -480,6 +527,8 @@ img, video { max-width: 100%; display: block; }
   .band { flex-direction: column; align-items: stretch; gap: 20px; padding: 32px 24px; border-radius: 20px; }
   .band h2 { font-size: 30px; }
   .band p { font-size: 15px; }
+  .doc .band { padding: 28px 22px; }
+  .listen { grid-template-columns: 1fr; }
   .closing { padding: 72px var(--gutter); align-items: stretch; text-align: left; }
   .closing h2 { font-size: 36px; }
   .closing p { font-size: 17px; margin-top: 20px; }
